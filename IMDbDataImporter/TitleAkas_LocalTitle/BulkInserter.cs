@@ -33,7 +33,7 @@ namespace IMDbDataImporter
                 CheckForNull(dataRow, "region", title.region);
                 CheckForNull(dataRow, "language", title.language);
                 CheckForNull(dataRow, "isOriginalTitle", title.isOriginalTitle);
-                Console.WriteLine(dataRow.ItemArray[0].ToString());
+                Console.WriteLine(dataRow.ItemArray[0].ToString()); //crashes at id 1553, dont understand
                 Console.WriteLine("-----------------------------------------");
                 datatable.Rows.Add(dataRow);
             }
