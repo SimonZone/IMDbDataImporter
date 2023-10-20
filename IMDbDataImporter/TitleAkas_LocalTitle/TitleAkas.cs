@@ -27,5 +27,10 @@ namespace IMDbDataImporter
         public string? language { get; set; }
         public bool isOriginalTitle { get; set; }
 
+
+        public override string ToString()
+        {
+            return titleID + ", " + ordering + ", " + localTitle + ", " + region + ", " + language + ", " + isOriginalTitle;
+        }
     }
 }

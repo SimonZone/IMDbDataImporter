@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace IMDbDataImporter
 {
-    public class PreparedInserter : IInserter
+    public class PreparedInserter : ILocalInserter
     {
 
 

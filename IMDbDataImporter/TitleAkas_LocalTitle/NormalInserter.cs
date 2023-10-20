@@ -8,26 +8,25 @@ using System.Threading.Tasks;
 
 namespace IMDbDataImporter
 {
-    public class NormalInserter : IInserter
+    public class NormalInserter : ILocalInserter
     {
 
         public void InsertData(SqlConnection sqlConn, List<TitleAkas> titleAkas)
         {
-
             foreach (TitleAkas localTitle in titleAkas)
             {
-                SqlCommand sqlcmd = new("" +
-                    "INSERT INTO [dbo].[TitleAkas]" +
-                    "([titleID],[ordering]," +
-                    "[localTitle],[region]," +
-                    "[language],[isOriginalTitle])" +
-                    "VALUES" +
-                    $"({localTitle.titleID}," +
-                    $"{CheckIntForNull(localTitle.ordering)}," +
-                    $"'{localTitle.localTitle.Replace("'", "''")}'," +
-                    $"'{localTitle.region.Replace("'", "''")}'," +
-                    $"'{localTitle.language.Replace("'", "''")}'," +
-                    $"{CheckStringForBool(localTitle.isOriginalTitle)})"
+                SqlCommand sqlcmd = new(""
+                    + "INSERT INTO [dbo].[TitleAkas]"
+                    + "([titleID],[ordering],"
+                    + "[localTitle],[region],"
+                    + "[language],[isOriginalTitle])"
+                    + "VALUES"
+                    + $"({localTitle.titleID},"
+                    + $"{CheckIntForNull(localTitle.ordering)},"
+                    + $"'{localTitle.localTitle.Replace("'", "''")}',"
+                    + $"'{CheckStringForNull(localTitle.region)}',"
+                    + $"'{CheckStringForNull(localTitle.language)}',"
+                    + $"{CheckStringForBool(localTitle.isOriginalTitle)})"
                     , sqlConn);
 
                 try
@@ -53,6 +52,18 @@ namespace IMDbDataImporter
             else
             {
                 return "" + val;
+            }
+        }
+
+        public static string CheckStringForNull(string? val)
+        {
+            if (val != null)
+            {
+                return val.Replace("'", "''");
+            }
+            else
+            {
+                return "NULL";
             }
         }
 

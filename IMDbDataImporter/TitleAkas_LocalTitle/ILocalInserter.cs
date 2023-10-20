@@ -2,7 +2,7 @@
 
 namespace IMDbDataImporter
 {
-    public interface IInserter
+    public interface ILocalInserter
     {
         void InsertData(SqlConnection Sqlconn, List<TitleAkas> titles);
     }

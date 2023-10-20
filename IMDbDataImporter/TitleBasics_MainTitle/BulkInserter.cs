@@ -10,7 +10,7 @@ namespace IMDbDataImporter.TitleBasics_MainTitle
 {
     internal class BulkInserter : IInserter
     {
-        public void InsertData(SqlConnection Sqlconn, List<TitleBasics> titles)
+        public void InsertData(SqlConnection Sqlconn, List<Person> titles)
         {
             Console.WriteLine("Inserting Bulk");
             DataTable? datatable = new("TitleBasics");
@@ -23,7 +23,7 @@ namespace IMDbDataImporter.TitleBasics_MainTitle
             datatable.Columns.Add("startYear", typeof(int));
             datatable.Columns.Add("endYear", typeof(int));
             datatable.Columns.Add("runtimeMinutes", typeof(int));
-            foreach (TitleBasics title in titles)
+            foreach (Person title in titles)
             {
                 DataRow? dataRow = datatable.NewRow();
                 CheckForNull(dataRow, "titleID", title.titleID);

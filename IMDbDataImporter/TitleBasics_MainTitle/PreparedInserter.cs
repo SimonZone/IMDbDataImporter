@@ -11,21 +11,21 @@ namespace IMDbDataImporter.TitleBasics_MainTitle
     {
 
 
-        public void InsertData(SqlConnection Sqlconn, List<TitleBasics> titles)
+        public void InsertData(SqlConnection Sqlconn, List<Person> titles)
         {
             SqlCommand sqlcmd = new("" +
                     "INSERT INTO [dbo].[TitleBasics]" +
                     "([titleID],[titleType],[primaryTitle],[originalTitle]," +
                     "[isAdult],[startYear],[endYear],[runtimeMinutes])" +
                     "VALUES" +
-                    $"(@titleID," +
-                    $"@titleType," +
-                    $"@primaryTitle," +
-                    $"@originalTitle," +
-                    $"@isAdult," +
-                    $"@startYear," +
-                    $"@endYear," +
-                    $"@runtimeMinutes)"
+                    "(@titleID," +
+                    "@titleType," +
+                    "@primaryTitle," +
+                    "@originalTitle," +
+                    "@isAdult," +
+                    "@startYear," +
+                    "@endYear," +
+                    "@runtimeMinutes)"
                     , Sqlconn);
 
             SqlParameter titleID = new("@titleID", System.Data.SqlDbType.Int);
@@ -47,7 +47,7 @@ namespace IMDbDataImporter.TitleBasics_MainTitle
 
             sqlcmd.Prepare();
 
-            foreach (TitleBasics title in titles)
+            foreach (Person title in titles)
             {
                 CheckForNull(titleID, title.titleID);
                 CheckForNull(titleType, title.titleType);

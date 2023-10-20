@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace IMDbDataImporter.TitleBasics_MainTitle
 {
-    public class TitleBasics
+    public class Person
     {
-        public TitleBasics(int titleID, string titleType,
+        public Person(int titleID, string titleType,
             string primaryTitle, string originalTitle,
             bool isAdult, int? startYear,
             int? endYear, int? runtimeMinutes)
