@@ -33,12 +33,12 @@ internal class PersonsProgram
         }
         else return;
 
-        string fileLocationSimonHomePc = @"A:\WindowsFolders\Desktop\IMDb files\dataPerson.tsv";
-        //string fileLocationSimonLaptop = @"C:\Users\simon\Desktop\data.tsv";
+        //string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\dataPerson.tsv";
+        string fileLocationSimon = @"C:\Users\simon\Desktop\dataPerson.tsv";
 
         List<Principal> persons = new();
 
-        foreach (string line in File.ReadLines(fileLocationSimonHomePc).Skip(1).Take(linesToTake))
+        foreach (string line in File.ReadLines(fileLocationSimon).Skip(1).Take(linesToTake))
         {
             string[] values = line.Split("\t");
             if (values.Length == 6)
@@ -96,13 +96,6 @@ internal class PersonsProgram
             string inputMinusTT = input.Remove(0, 2);
             int IDInt = int.Parse(inputMinusTT);
             return IDInt;
-        }
-
-        bool ConvertToBool(string input)
-        {
-            int inputInt = int.Parse(input);
-            if (inputInt == 0) return false; else return true;
-            throw new ArgumentException("Could not convert to bool");
         }
     }
 }

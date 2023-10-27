@@ -10,10 +10,10 @@ namespace IMDbDataImporter.TitleBasics_MainTitle
     public class NormalInserter : IInserter
     {
 
-        public void InsertData(SqlConnection sqlConn, List<Person> titles)
+        public void InsertData(SqlConnection sqlConn, List<TitleBasics> titles)
         {
 
-            foreach (Person title in titles)
+            foreach (TitleBasics title in titles)
             {
                 SqlCommand sqlcmd = new("" +
                     "INSERT INTO [dbo].[TitleBasics]" +

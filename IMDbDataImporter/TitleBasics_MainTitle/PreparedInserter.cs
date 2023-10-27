@@ -11,7 +11,7 @@ namespace IMDbDataImporter.TitleBasics_MainTitle
     {
 
 
-        public void InsertData(SqlConnection Sqlconn, List<Person> titles)
+        public void InsertData(SqlConnection Sqlconn, List<TitleBasics> titles)
         {
             SqlCommand sqlcmd = new("" +
                     "INSERT INTO [dbo].[TitleBasics]" +
@@ -47,7 +47,7 @@ namespace IMDbDataImporter.TitleBasics_MainTitle
 
             sqlcmd.Prepare();
 
-            foreach (Person title in titles)
+            foreach (TitleBasics title in titles)
             {
                 CheckForNull(titleID, title.titleID);
                 CheckForNull(titleType, title.titleType);

@@ -33,12 +33,12 @@ internal class LocalProgram
         }
         else return;
 
-        string fileLocationSimonHomePc = @"A:\WindowsFolders\Desktop\IMDb files\dataAkas.tsv";
-        //string fileLocationSimonLaptop = @"C:\Users\simon\Desktop\data.tsv";
+        //string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\dataAkas.tsv";
+        string fileLocationSimon = @"C:\Users\simon\Desktop\dataAkas.tsv";
 
         List<TitleAkas> titlesLocal = new();
 
-        foreach (string line in File.ReadLines(fileLocationSimonHomePc).Skip(1).Take(linesToTake))
+        foreach (string line in File.ReadLines(fileLocationSimon).Skip(1).Take(linesToTake))
         {
             string[] values = line.Split("\t");
             if (values.Length == 8)
@@ -51,7 +51,6 @@ internal class LocalProgram
                     ConvertToString(values[4]),
                     ConvertToBool(values[7])
                     );
-
                 titlesLocal.Add(titleAkas);
             }
         }

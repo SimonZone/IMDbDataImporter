@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace IMDbDataImporter.TitleBasics_MainTitle
+﻿namespace IMDbDataImporter.TitleBasics_MainTitle
 {
-    public class Person
+    public class TitleBasics
     {
-        public Person(int titleID, string titleType,
+        public TitleBasics(int titleID, string titleType,
             string primaryTitle, string originalTitle,
             bool isAdult, int? startYear,
             int? endYear, int? runtimeMinutes)

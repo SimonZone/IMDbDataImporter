@@ -33,17 +33,17 @@ internal class TitleProgram
         }
         else return;
 
-        string fileLocationSimonHomePc = @"A:\WindowsFolders\Desktop\IMDb files\data.tsv";
-        //string fileLocationSimonLaptop = @"C:\Users\simon\Desktop\data.tsv";
+        //string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\data.tsv";
+        string fileLocationSimon = @"C:\Users\simon\Desktop\data.tsv";
 
-        List<Person> titles = new();
+        List<TitleBasics> titles = new();
 
-        foreach (string line in File.ReadLines(fileLocationSimonHomePc).Skip(1).Take(linesToTake))
+        foreach (string line in File.ReadLines(fileLocationSimon).Skip(1).Take(linesToTake))
         {
             string[] values = line.Split("\t");
             if (values.Length == 9)
             {
-                Person titleBasics = new(
+                TitleBasics titleBasics = new(
                     ConvertToID(values[0]),
                     values[1],
                     values[2],

@@ -34,12 +34,12 @@ internal class PrincipalsProgram
         }
         else return;
 
-        string fileLocationSimonHomePc = @"A:\WindowsFolders\Desktop\IMDb files\dataPrincipals.tsv";
-        //string fileLocationSimonLaptop = @"C:\Users\simon\Desktop\data.tsv";
+        //string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\dataPrincipals.tsv";
+        string fileLocationSimon = @"C:\Users\simon\Desktop\dataPrincipals.tsv";
 
         List<Principal> principals = new();
 
-        foreach (string line in File.ReadLines(fileLocationSimonHomePc).Skip(1).Take(linesToTake))
+        foreach (string line in File.ReadLines(fileLocationSimon).Skip(1).Take(linesToTake))
         {
             string[] values = line.Split("\t");
             if (values.Length == 6)

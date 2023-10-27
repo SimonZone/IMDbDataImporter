@@ -13,7 +13,7 @@ namespace IMDbDataImporter.Person
         public void InsertData(SqlConnection Sqlconn, List<Principal> persons)
         {
             Console.WriteLine("Inserting Bulk");
-            DataTable? datatable = new("Persons");
+            DataTable? datatable = new("Person");
 
             datatable.Columns.Add("personID", typeof(int));
             datatable.Columns.Add("name", typeof(string));
