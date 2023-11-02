@@ -8,10 +8,10 @@ namespace IMDbDataImporter.Principals
 {
     public class Principal
     {
-        public Principal(int localTitleID, int personID,
+        public Principal(int titleID, int personID,
             int ordering, string category, string? job, string? character)
         {
-            this.localTitleID = localTitleID;
+            this.titleID = titleID;
             this.personID = personID;
             this.ordering = ordering;
             this.category = category;
@@ -19,7 +19,7 @@ namespace IMDbDataImporter.Principals
             this.character = character;
         }
 
-        public int localTitleID { get; set; }
+        public int titleID { get; set; }
         public int personID { get; set; }
         public int ordering { get; set; }
         public string category { get; set; }

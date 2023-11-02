@@ -16,7 +16,7 @@ namespace IMDbDataImporter.Principals
             Console.WriteLine("Inserting Bulk");
             DataTable? datatable = new("Principals");
 
-            datatable.Columns.Add("localTitleID", typeof(int));
+            datatable.Columns.Add("titleID", typeof(int));
             datatable.Columns.Add("personID", typeof(int));
             datatable.Columns.Add("ordering", typeof(int));
             datatable.Columns.Add("category", typeof(string));
@@ -26,7 +26,7 @@ namespace IMDbDataImporter.Principals
             foreach (Principal principal in principals)
             {
                 DataRow? dataRow = datatable.NewRow();
-                CheckForNull(dataRow, "localTitleID", principal.localTitleID);
+                CheckForNull(dataRow, "titleID", principal.titleID);
                 CheckForNull(dataRow, "personID", principal.personID);
                 CheckForNull(dataRow, "ordering", principal.ordering);
                 CheckForNull(dataRow, "category", principal.category);

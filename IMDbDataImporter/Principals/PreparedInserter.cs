@@ -15,10 +15,10 @@ namespace IMDbDataImporter.Principals
         {
             SqlCommand sqlcmd = new("" +
                     "INSERT INTO [dbo].[Principals]" +
-                    "([localTitleID],[personID],[ordering]" +
+                    "([titleID],[personID],[ordering]" +
                     ",[category],[job],[character])" +
                     "VALUES" +
-                    $"(@localTitleID," +
+                    $"(@titleID," +
                     $"@personID," +
                     $"@ordering," +
                     $"@category," +
@@ -26,8 +26,8 @@ namespace IMDbDataImporter.Principals
                     $"@character)"
                     , Sqlconn);
 
-            SqlParameter localTitleID = new("@localTitleID", System.Data.SqlDbType.Int);
-            sqlcmd.Parameters.Add(localTitleID);
+            SqlParameter titleID = new("@titleID", System.Data.SqlDbType.Int);
+            sqlcmd.Parameters.Add(titleID);
             SqlParameter personID = new("@personID", System.Data.SqlDbType.Int);
             sqlcmd.Parameters.Add(personID);
             SqlParameter ordering = new("@ordering", System.Data.SqlDbType.Int);
@@ -43,7 +43,7 @@ namespace IMDbDataImporter.Principals
 
             foreach (Principal principal in principals)
             {
-                CheckForNull(localTitleID, principal.localTitleID);
+                CheckForNull(titleID, principal.titleID);
                 CheckForNull(personID, principal.personID);
                 CheckForNull(ordering, principal.ordering);
                 CheckForNull(category, principal.category);

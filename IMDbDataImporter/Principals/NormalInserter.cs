@@ -14,10 +14,10 @@ namespace IMDbDataImporter.Principals
             {
                 SqlCommand sqlcmd = new("" +
                     "INSERT INTO [dbo].[Principals]" +
-                    "([localTitleID],[personID],[ordering]" +
+                    "([titleID],[personID],[ordering]" +
                     ",[category],[job],[character])" +
                     "VALUES" +
-                    $"({principal.localTitleID}," +
+                    $"({principal.titleID}," +
                     $"{principal.personID}," +
                     $"{CheckIntForNull(principal.ordering)}," +
                     $"'{principal.category.Replace("'", "''")}'," +
