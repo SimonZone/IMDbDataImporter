@@ -36,6 +36,7 @@ internal class PrincipalsProgram
 
         //string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\dataPrincipals.tsv";
         string fileLocationSimon = @"C:\Users\simon\Desktop\dataPrincipals.tsv";
+        string fileLocationRasmus = @"C:\Users\smaur\OneDrive\Skrivebord\Zealand\4 Sem\Databaser\OBL_IMDb\title.principals.tsv";
 
         List<Principal> principals = new();
 

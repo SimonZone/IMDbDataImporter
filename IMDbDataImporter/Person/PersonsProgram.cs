@@ -35,6 +35,8 @@ internal class PersonsProgram
 
         //string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\dataPerson.tsv";
         string fileLocationSimon = @"C:\Users\simon\Desktop\dataPerson.tsv";
+        string fileLocationRasmus = @"C:\Users\smaur\OneDrive\Skrivebord\Zealand\4 Sem\Databaser\OBL_IMDb\name.basics.tsv";
+
 
         List<Principal> persons = new();
 

@@ -35,6 +35,7 @@ internal class TitleProgram
 
         //string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\data.tsv";
         string fileLocationSimon = @"C:\Users\simon\Desktop\data.tsv";
+        string fileLocationRasmus = @"C:\Users\smaur\OneDrive\Skrivebord\Zealand\4 Sem\Databaser\OBL_IMDb\title.basics.tsv";
 
         List<TitleBasics> titles = new();
 
