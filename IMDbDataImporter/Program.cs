@@ -3,6 +3,9 @@
 string connString = "server=localhost;database=IMDb;" +
     "user id=sa;password=Detstores123!;TrustServerCertificate=True";
 
+string rkaConnString = "server=localhost;database=IMDb;" +
+    "user id=sa;password=SQLData23!;TrustServerCertificate=True";
+
 LocalProgram localProgram = new();
 TitleProgram titleProgram = new();
 PersonsProgram personProgram = new();
