@@ -1,4 +1,5 @@
 ﻿using IMDbDataImporter.TitleBasics_MainTitle;
+using IMDbDataImporter.TitleBasicsGenres;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -6,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMDbDataImporter.TitleBasics_Genre
+namespace IMDbDataImporter.Genre
 {
     internal class GenreProgram
     {
@@ -16,7 +17,7 @@ namespace IMDbDataImporter.TitleBasics_Genre
         //private string fileLocationRasmus = @"C:\Users\smaur\OneDrive\Skrivebord\Zealand\4 Sem\Databaser\OBL_IMDb\title.basics.tsv";
         private List<Genre> _genres = new();
         private List<string> _genreNames = new();
-        IInserter? myInserter = null;
+        PreparedInserter myInserter = new();
 
         public void Run(string connString)
         {
@@ -24,12 +25,10 @@ namespace IMDbDataImporter.TitleBasics_Genre
             sqlConn.Open();
 
             Console.Clear();
-            Console.WriteLine("Title Basics, Genres");
+            Console.WriteLine("Genres");
             Console.WriteLine("What do you want to do?");
             Console.WriteLine("1. Delete all");
-            Console.WriteLine("2. Prepare Insert");
-            Console.WriteLine("3. Normal Insert");
-            Console.WriteLine("4. Bulk Insert");
+            Console.WriteLine("Press \"Enter\" to import data");
             string? input = Console.ReadLine();
 
             if (input == "1")
@@ -50,49 +49,49 @@ namespace IMDbDataImporter.TitleBasics_Genre
 
             ReadLinesFromFile(linesToTake);
 
-            
+            myInserter.InsertData(sqlConn, _genres);            
+        }
 
-            string? ConvertToString(string input)
+        private string? ConvertToString(string input)
+        {
+            if (input.ToLower() == @"\n")
             {
-                if (input.ToLower() == @"\n")
-                {
-                    return null;
-                }
-                return input;
-            }          
+                return null;
+            }
+            return input;
+        }
 
-            void ReadLinesFromFile(int linesToTake)
+        private void ReadLinesFromFile(int linesToTake)
+        {
+            foreach (string line in File.ReadLines(fileLocationOliver).Skip(1).Take(linesToTake))
             {
-                foreach (string line in File.ReadLines(fileLocationOliver).Skip(1).Take(linesToTake))
+                string[] values = line.Split("\t");
+                if (values.Length == 9)
                 {
-                    string[] values = line.Split("\t");
-                    if (values.Length == 9)
-                    {
-                        string genres = new(values[8]);
+                    string genres = new(values[8]);
 
-                        SplitGenres(genres);
-                    }
+                    SplitGenres(genres);
                 }
-
-                foreach (string genre in _genreNames)
-                {
-                    _genres.Add(new Genre(genre));
-                }
-
-                Console.WriteLine(_genres.Count);
             }
 
-            void SplitGenres(string genres)
+            foreach (string genre in _genreNames)
             {
-                string[] splitGenres = genres.Split(",");
-                foreach (string genre in splitGenres)
+                _genres.Add(new Genre(genre));
+            }
+
+            Console.WriteLine(_genres.Count);
+        }
+
+        private void SplitGenres(string genres)
+        {
+            string[] splitGenres = genres.Split(",");
+            foreach (string genre in splitGenres)
+            {
+                if (!_genreNames.Contains(genre))
                 {
-                    if (!_genreNames.Contains(genre))
+                    if (ConvertToString(genre) != null)
                     {
-                        if (ConvertToString(genre) != null)
-                        {
-                            _genreNames.Add(genre);
-                        }
+                        _genreNames.Add(genre);
                     }
                 }
             }

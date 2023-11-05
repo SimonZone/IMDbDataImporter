@@ -35,7 +35,7 @@ internal class LocalProgram
 
         //string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\dataAkas.tsv";
         string fileLocationSimon = @"C:\Users\simon\Desktop\dataAkas.tsv";
-        string fileLocationRasmus = @"C:\Users\smaur\OneDrive\Skrivebord\Zealand\4 Sem\Databaser\OBL_IMDb\title.akas.tsv";
+        //string fileLocationRasmus = @"C:\Users\smaur\OneDrive\Skrivebord\Zealand\4 Sem\Databaser\OBL_IMDb\title.akas.tsv";
 
         List<TitleAkas> titlesLocal = new();
 

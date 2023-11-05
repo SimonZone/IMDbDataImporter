@@ -1,17 +1,19 @@
 ﻿using IMDbDataImporter.Person;
-using IMDbDataImporter.TitleBasics_Genre;
+using IMDbDataImporter.Genre;
+using IMDbDataImporter.TitleBasicsGenres;
 
-string connString = "server=localhost;database=IMDb;" +
-    "user id=sa;password=Detstores123!;TrustServerCertificate=True";
+//string connString = "server=localhost;database=IMDb;user id=sa;password=Detstores123!;TrustServerCertificate=True";
 
-string rkaConnString = "server=localhost;database=IMDb;" +
-    "user id=sa;password=SQLData23!;TrustServerCertificate=True";
+string connString = "server=localhost;database=IMDb;user id=sa;password=Munadifi3702;TrustServerCertificate=True";
+
+//string connString = "server=localhost;database=IMDb;user id=sa;password=SQLData23!;TrustServerCertificate=True";
 
 LocalProgram localProgram = new();
 TitleProgram titleProgram = new();
 PersonsProgram personProgram = new();
 PrincipalsProgram principalsProgram = new();
 GenreProgram genreProgram = new();
+TitleBasicsGenresProgram titleBasicsGenresProgram = new();
 
 while (true)
 {
@@ -22,7 +24,8 @@ while (true)
     Console.WriteLine("3. Persons");
     Console.WriteLine("4. Principals");
     Console.WriteLine("5. Genres");
-    Console.WriteLine("6. Exit");
+    Console.WriteLine("6. Link Genres");
+    Console.WriteLine("7. Exit");
     string? input = Console.ReadLine();
 
     switch (input)
@@ -43,6 +46,9 @@ while (true)
             genreProgram.Run(connString);
             break;
         case "6":
+            titleBasicsGenresProgram.Run(connString);
+            break;
+        case "7":
             Console.WriteLine("Exiting");
             return;
         default:

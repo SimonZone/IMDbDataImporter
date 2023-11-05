@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMDbDataImporter.TitleBasics_Genre
+namespace IMDbDataImporter.Genre
 {
     public class Genre
     {
