@@ -1,4 +1,5 @@
 ﻿using IMDbDataImporter.Person;
+using IMDbDataImporter.TitleBasics_Genre;
 
 string connString = "server=localhost;database=IMDb;" +
     "user id=sa;password=Detstores123!;TrustServerCertificate=True";
@@ -10,6 +11,7 @@ LocalProgram localProgram = new();
 TitleProgram titleProgram = new();
 PersonsProgram personProgram = new();
 PrincipalsProgram principalsProgram = new();
+GenreProgram genreProgram = new();
 
 while (true)
 {
@@ -19,7 +21,8 @@ while (true)
     Console.WriteLine("2. Local");
     Console.WriteLine("3. Persons");
     Console.WriteLine("4. Principals");
-    Console.WriteLine("5. Exit");
+    Console.WriteLine("5. Genres");
+    Console.WriteLine("6. Exit");
     string? input = Console.ReadLine();
 
     switch (input)
@@ -37,6 +40,9 @@ while (true)
             principalsProgram.Run(connString);
             break;
         case "5":
+            genreProgram.Run(connString);
+            break;
+        case "6":
             Console.WriteLine("Exiting");
             return;
         default:
