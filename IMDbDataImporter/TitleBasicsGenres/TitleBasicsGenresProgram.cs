@@ -31,7 +31,7 @@ namespace IMDbDataImporter.TitleBasicsGenres
 
             if (input == "1")
             {
-                SqlCommand cmd = new("DELETE FROM Genre", sqlConn);
+                SqlCommand cmd = new("DELETE FROM TitleBasicsGenre", sqlConn);
                 cmd.ExecuteNonQuery();
                 return;
             }
