@@ -1,4 +1,4 @@
-﻿using IMDbDataImporter.Person;
+﻿using IMDbDataImporter.Persons;
 using System.Data.SqlClient;
 
 internal class PersonsProgram
@@ -19,7 +19,7 @@ internal class PersonsProgram
 
         if (input == "1")
         {
-            SqlCommand cmd = new("DELETE FROM Person", sqlConn);
+            SqlCommand cmd = new("DELETE FROM Persons", sqlConn);
             cmd.ExecuteNonQuery();
             return;
         }

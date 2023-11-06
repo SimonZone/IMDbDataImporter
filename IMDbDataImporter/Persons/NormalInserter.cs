@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace IMDbDataImporter.Person
+namespace IMDbDataImporter.Persons
 {
     public class NormalInserter : IInserter
     {
@@ -10,7 +10,7 @@ namespace IMDbDataImporter.Person
             foreach (Principal person in persons)
             {
                 SqlCommand sqlcmd = new("" +
-                    "INSERT INTO [dbo].[Person]" +
+                    "INSERT INTO [dbo].[Persons]" +
                     "([personID],[name],[birthYear],[deathYear])" +
                     "VALUES" +
                     $"({person.personID}," +

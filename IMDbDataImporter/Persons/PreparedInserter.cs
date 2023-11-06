@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMDbDataImporter.Person
+namespace IMDbDataImporter.Persons
 {
     public class PreparedInserter : IInserter
     {
@@ -14,7 +14,7 @@ namespace IMDbDataImporter.Person
         public void InsertData(SqlConnection Sqlconn, List<Principal> persons)
         {
             SqlCommand sqlcmd = new("" +
-                    "INSERT INTO [dbo].[Person]" +
+                    "INSERT INTO [dbo].[Persons]" +
                     "([personID],[name],[birthYear],[deathYear])" +
                     "VALUES" +
                     $"(@personID," +

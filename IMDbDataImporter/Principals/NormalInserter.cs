@@ -1,7 +1,4 @@
-﻿using IMDbDataImporter.Person;
-using IMDbDataImporter.TitleBasics_MainTitle;
-using System.Collections.Generic;
-using System.Data.SqlClient;
+﻿using System.Data.SqlClient;
 
 namespace IMDbDataImporter.Principals
 {

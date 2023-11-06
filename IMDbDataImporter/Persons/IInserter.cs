@@ -1,6 +1,6 @@
 ﻿using System.Data.SqlClient;
 
-namespace IMDbDataImporter.Person
+namespace IMDbDataImporter.Persons
 {
     public interface IInserter
     {

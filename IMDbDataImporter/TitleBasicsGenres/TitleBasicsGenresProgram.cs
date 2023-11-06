@@ -1,18 +1,12 @@
-﻿using IMDbDataImporter.Genre;
-using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 
 namespace IMDbDataImporter.TitleBasicsGenres
 {
     internal class TitleBasicsGenresProgram
     {
         //private string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\data.tsv";
-        private string fileLocationOliver = @"C:\Users\olive\Desktop\Zealand-files\4.Semester\SQL databaser\title.basics.tsv\data.tsv";
-        //private string fileLocationSimon = @"C:\Users\simon\Desktop\data.tsv";
+        //private string fileLocationOliver = @"C:\Users\olive\Desktop\Zealand-files\4.Semester\SQL databaser\title.basics.tsv\data.tsv";
+        private string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\data.tsv";
         //private string fileLocationRasmus = @"C:\Users\smaur\OneDrive\Skrivebord\Zealand\4 Sem\Databaser\OBL_IMDb\title.basics.tsv";
         private List<TitleBasicsGenre> _titleBasicsGenres = new();
         PreparedInserter myInserter = new();
@@ -31,7 +25,7 @@ namespace IMDbDataImporter.TitleBasicsGenres
 
             if (input == "1")
             {
-                SqlCommand cmd = new("DELETE FROM TitleBasicsGenre", sqlConn);
+                SqlCommand cmd = new("DELETE FROM TitleBasicsGenres", sqlConn);
                 cmd.ExecuteNonQuery();
                 return;
             }
@@ -61,7 +55,7 @@ namespace IMDbDataImporter.TitleBasicsGenres
 
         private void ReadLinesFromFile(int linesToTake)
         {
-            foreach (string line in File.ReadLines(fileLocationOliver).Skip(1).Take(linesToTake))
+            foreach (string line in File.ReadLines(fileLocationSimon).Skip(1).Take(linesToTake))
             {
                 string[] values = line.Split("\t");
                 if (values.Length == 9)

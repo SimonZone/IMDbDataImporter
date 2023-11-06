@@ -40,7 +40,7 @@ internal class TitleProgram
 
         List<TitleBasics> titles = new();
 
-        foreach (string line in File.ReadLines(fileLocationOliver).Skip(1).Take(linesToTake))
+        foreach (string line in File.ReadLines(fileLocationSimon).Skip(1).Take(linesToTake))
         {
             string[] values = line.Split("\t");
             if (values.Length == 9)

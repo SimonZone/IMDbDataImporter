@@ -6,14 +6,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMDbDataImporter.Person
+namespace IMDbDataImporter.Persons
 {
     internal class BulkInserter : IInserter
     {
         public void InsertData(SqlConnection Sqlconn, List<Principal> persons)
         {
             Console.WriteLine("Inserting Bulk");
-            DataTable? datatable = new("Person");
+            DataTable? datatable = new("Persons");
 
             datatable.Columns.Add("personID", typeof(int));
             datatable.Columns.Add("name", typeof(string));
@@ -32,7 +32,7 @@ namespace IMDbDataImporter.Person
 
             SqlBulkCopy? bulkCopy = new(Sqlconn, SqlBulkCopyOptions.KeepNulls, null)
             {
-                DestinationTableName = "Person",
+                DestinationTableName = "Persons",
                 BulkCopyTimeout = 0
             };
             bulkCopy.WriteToServer(datatable);

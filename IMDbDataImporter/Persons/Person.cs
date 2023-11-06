@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace IMDbDataImporter.Person
+namespace IMDbDataImporter.Persons
 {
     public class Principal
     {
