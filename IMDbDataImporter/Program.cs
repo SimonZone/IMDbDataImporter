@@ -1,4 +1,6 @@
 ﻿using IMDbDataImporter.Genre;
+using IMDbDataImporter.Persons;
+using IMDbDataImporter.Principals;
 using IMDbDataImporter.TitleBasics_MainTitle;
 using IMDbDataImporter.TitleBasicsGenres;
 
