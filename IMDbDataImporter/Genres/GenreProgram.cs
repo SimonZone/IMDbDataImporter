@@ -11,10 +11,7 @@ namespace IMDbDataImporter.Genre
 {
     internal class GenreProgram
     {
-        //private string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\data.tsv";
-        //private string fileLocationOliver = @"C:\Users\olive\Desktop\Zealand-files\4.Semester\SQL databaser\title.basics.tsv\data.tsv";
-        private string fileLocationSimon = @"A:\WindowsFolders\Desktop\IMDb files\data.tsv";
-        //private string fileLocationRasmus = @"C:\Users\smaur\OneDrive\Skrivebord\Zealand\4 Sem\Databaser\OBL_IMDb\title.basics.tsv";
+        string? file = new FilePathHandler().TitlePath;
         private List<Genre> _genres = new();
         private List<string> _genreNames = new();
         PreparedInserter myInserter = new();
@@ -49,7 +46,7 @@ namespace IMDbDataImporter.Genre
 
             ReadLinesFromFile(linesToTake);
 
-            myInserter.InsertData(sqlConn, _genres);            
+            myInserter.InsertData(sqlConn, _genres);
         }
 
         private string? ConvertToString(string input)
@@ -63,7 +60,7 @@ namespace IMDbDataImporter.Genre
 
         private void ReadLinesFromFile(int linesToTake)
         {
-            foreach (string line in File.ReadLines(fileLocationSimon).Skip(1).Take(linesToTake))
+            foreach (string line in File.ReadLines(file!).Skip(1).Take(linesToTake))
             {
                 string[] values = line.Split("\t");
                 if (values.Length == 9)

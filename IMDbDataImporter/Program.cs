@@ -1,9 +1,10 @@
 ﻿using IMDbDataImporter.Genre;
+using IMDbDataImporter.TitleBasics_MainTitle;
 using IMDbDataImporter.TitleBasicsGenres;
 
-string connString = "server=localhost;database=IMDb;user id=sa;password=Detstores123!;TrustServerCertificate=True";
+//string connString = "server=localhost;database=IMDb;user id=sa;password=Detstores123!;TrustServerCertificate=True";
 
-//string connString = "server=localhost;database=IMDb;user id=sa;password=Munadifi3702;TrustServerCertificate=True";
+string connString = "server=localhost;database=IMDb;user id=sa;password=123456;TrustServerCertificate=True";
 
 //string connString = "server=localhost;database=IMDb;user id=sa;password=SQLData23!;TrustServerCertificate=True";
 
